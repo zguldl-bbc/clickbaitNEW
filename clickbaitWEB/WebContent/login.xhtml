@@ -1,26 +1,31 @@
-<?xml-stylesheet href="css/style.css" type="text/css"?>
-<h:html xmlns="http://www.w3.org/1999/xhtml"
+<?xml-stylesheet href="style.css" type="text/css"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html">
-<h:body>
-	<h:form>
-		<h:outputLabel for="email" value="E-mail: " />
-		<h:inputText id="email" type="email"
-			value="#{registerController.user.userEmail}" required="true"
-			requiredMessage="Bitte E-Mail eingeben">
-		</h:inputText>
-
-		<h:outputLabel for="password" value="Passwort: " />
-		<h:inputSecret id="password" type="password"
-			value="#{registerController.user.userPassword}" required="true"
-			requiredMessage="Bitte Passwort eingeben">
-		</h:inputSecret>
-
-		<h:message for="password" style="color: red;" />
-
-		<h:commandButton action="#{registerController.login()}"
-			value="Einloggen" />
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<link rel="stylesheet" href="css/style.css" />
+<h:head>
+	<title>clickbait</title>
+	<meta name="author" content="Raphael Stauffacher"></meta>
+</h:head>
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+	<h:form styleClass="navbar-form navbar-right">
+		<div class="form-group">
+			<b:inputText placeholder="Email" fieldSize="sm" id="email"
+				type="email" value="#{registerController.user.userEmail}"
+				required="true" />
+		</div>
+		<div class="form-group">
+			<b:inputSecret placeholder="Password" fieldSize="sm" id="password"
+				type="password" value="#{registerController.user.userPassword}"
+				required="true" />
+		</div> 
+                #{' '}
+                <b:commandButton value="Sign in" look="success"
+			icon="chevron-right" iconAlign="right"
+			action="#{registerController.login()}" />
 	</h:form>
 </h:body>
-</h:html>
+</html>
