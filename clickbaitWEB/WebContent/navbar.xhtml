@@ -1,18 +1,21 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:b="http://bootsfaces.net/ui"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets">
-    <b:navBar brand="clickbait" brandHref="https://en.wikipedia.org/wiki/Clickbait" inverse="true" fixed="top">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<b:navBar brand="clickbait"
+		brandHref="https://en.wikipedia.org/wiki/Clickbait" inverse="true"
+		fixed="top">
 		<b:navbarLinks>
 			<b:navLink value="Home" href="index.jsf"></b:navLink>
 			<b:navLink value="Videos" href="video.jsf"></b:navLink>
 			<b:navLink value="Images" href="image.jsf"></b:navLink>
 			<b:dropMenu value="Profile">
-				<b:navLink value="Playlists" href="#"></b:navLink>
+				<b:navLink value="Playlists" href="profile.jsf"></b:navLink>
 				<b:navLink value="Infos" href="#"></b:navLink>
 			</b:dropMenu>
 		</b:navbarLinks>
-		<ui:include src="login.xhtml" />
+		<ui:include  src="login.xhtml" />
+		<ui:include  src="logout.xhtml" />
 	</b:navBar>
 </ui:composition>

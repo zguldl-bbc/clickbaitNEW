@@ -13,9 +13,17 @@
 	<ui:include src="navbar.xhtml" />
 	<b:jumbotron>
 		<b:container>
-			<h1>videos</h1>
+			<h1>profile</h1>
 		</b:container>
 	</b:jumbotron>
+
+	<b:container rendered="#{registerController.loggedIn}">
+		<p>you are logged in</p>
+	</b:container>
+
+	<b:container rendered="#{not registerController.loggedIn}">
+		<p>fucking pleb go log yourself in</p>
+	</b:container>
 	<ui:include src="footer.xhtml" />
 </h:body>
 </html>

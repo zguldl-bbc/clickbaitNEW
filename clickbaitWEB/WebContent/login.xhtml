@@ -11,7 +11,7 @@
 	<meta name="author" content="Raphael Stauffacher"></meta>
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
-	<h:form styleClass="navbar-form navbar-right">
+	<h:form rendered="#{not registerController.loggedIn}" styleClass="navbar-form navbar-right">
 		<div class="form-group">
 			<b:inputText placeholder="Email" fieldSize="sm" id="email"
 				type="email" value="#{registerController.user.userEmail}"
