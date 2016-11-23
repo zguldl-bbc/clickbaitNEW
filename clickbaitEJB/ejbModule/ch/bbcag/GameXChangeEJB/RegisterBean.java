@@ -37,16 +37,19 @@ public class RegisterBean implements RegisterBeanLocal {
 	}
 
 	@Override
-	public String login(User user) {
+	public boolean login(User user) {
 		try {
 			if (em.createNativeQuery("SELECT * FROM clickbaitdb.user where userEmail='"  + user.getUserEmail() + "' AND userPassword='" + user.getUserPassword() + "';").getResultList().size() > 0) {
 				LOGGER.info("User " + user.getUserEmail() + " successfully logged in.");
-			} else
+				return true;
+			} else {
 				LOGGER.info("Email or password incorrect.");
+				return false;
+			}
 		} catch (Exception e) {
 			LOGGER.warning("User could not be logged in: " + e);
 		}
-		return "";
+		return false;
 	}
 	
 	@SuppressWarnings("unchecked")

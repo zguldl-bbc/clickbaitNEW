@@ -16,6 +16,12 @@
 			<h1>videos</h1>
 		</b:container>
 	</b:jumbotron>
+	<h:form>
+		<h:commandButton value="Check" action="#{videoController.checkSession}" />
+	</h:form>
+	<h:form>
+		<h:commandButton value="Logout" action="#{videoController.logout}" />
+	</h:form>
 	<ui:include src="footer.xhtml" />
 </h:body>
 </html>
