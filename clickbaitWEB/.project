@@ -3,7 +3,7 @@
 	<name>clickbaitWEB</name>
 	<comment></comment>
 	<projects>
-		<project>GameXChangeEJB</project>
+		<project>clickbaitEJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
