@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
@@ -16,6 +17,69 @@
 			<h1>images</h1>
 		</b:container>
 	</b:jumbotron>
+	<ul id="rig">
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="res/example.jpg" />
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Skyrim at dawn</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="res/example2.jpg" />
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Riverwood</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="res/example3.jpg" />
+            <span class="rig-overlay"></span>
+            <span class="rig-text">The stars</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="res/example4.jpg" />
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Daedric warrior</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="res/example5.jpg" />
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Woodchopping</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="#">
+            <img class="rig-img" src="res/example6.jpg" />
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Trees</span>
+        </a>
+    </li>
+</ul>
+	<!--
+<b:row class="imageholder">
+		<b:column col-sm="6" col-md="5">
+			<b:thumbnail>
+				<img src="res/example.jpg"
+					alt="Generic placeholder thumbnail" />
+				<f:facet name="caption">
+					<h3>Skyrim at night</h3>
+					<p>With various graphic mods.</p>
+					<p>
+						<b:button look="primary" value="Button" />
+						<b:button value="Button" />
+					</p>
+				</f:facet>
+			</b:thumbnail>
+		</b:column>
+</b:row>  
+-->
+
 	<ui:include src="footer.xhtml" />
 </h:body>
 </html>
