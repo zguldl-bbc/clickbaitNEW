@@ -13,7 +13,7 @@
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
 <div id="registerForm">
 	<h:form>
-		<h:outputLabel for="userName" value="UserName: " />
+		<h:outputLabel for="userName" value="Username: " />
 		<b:inputText id="userName" type="text"
 			value="#{registerController.user.userName}" required="true"
 			requiredMessage="Bitte UserName eingeben">
@@ -32,7 +32,7 @@
 			requiredMessage="Bitte Passwort eingeben">
 		</b:inputSecret>
 
-		<h:outputLabel for="birthDate" value="BirthDate: " />
+		<h:outputLabel for="birthDate" value="Birthdate: " />
 		<b:inputText id="birthDate" type="date"
 			value="#{registerController.user.birthDate}" required="true"
 			requiredMessage="Bitte Geburtsdatum eingeben">
