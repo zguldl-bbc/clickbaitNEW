@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<b:navBar brand="clickbait" brandHref="#" inverse="true" fixed="top">
+		<b:navbarLinks>
+			<b:navLink value="Home" href="#"></b:navLink>
+			<b:navLink value="Images" href="#"></b:navLink>
+			<b:navLink value="SignUp" href="register.jsf"></b:navLink>
+			<b:dropMenu value="Profile">
+				<b:navLink value="Playlists" href="#"></b:navLink>
+				<b:navLink value="Infos" href="#"></b:navLink>
+			</b:dropMenu>
+		</b:navbarLinks>
+		<h:form styleClass="navbar-form navbar-right">
+			<div class="form-group">
+				<b:inputText placeholder="Email" fieldSize="sm" id="email"
+					type="email" value="#{registerController.user.userEmail}"
+					required="true" />
+			</div>
+			<div class="form-group">
+				<b:inputSecret placeholder="Password" fieldSize="sm" id="password"
+					type="password" value="#{registerController.user.userPassword}"
+					required="true" />
+			</div> 
+                #{' '}
+                <b:commandButton value="Sign in" look="success"
+				icon="chevron-right" iconAlign="right"
+				action="#{registerController.login()}" />
+		</h:form>
+	</b:navBar>
+</ui:composition>
