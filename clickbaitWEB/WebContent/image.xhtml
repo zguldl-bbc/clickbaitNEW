@@ -7,78 +7,74 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>clickbait</title>
-	<meta name="author" content="Raphael Stauffacher"></meta>
+	<meta name="author" content="Raphael Stauffacher / Guldimann Lionardo"></meta>
 </h:head>
 <!-- Add 50px padding top to the body for the navbar -->
-<h:body style="padding-top: 50px; padding-bottom: 20px;">
-	<ui:include src="navbar.xhtml" />
+<h:body class="imagebody" style="padding-top: 50px; padding-bottom: 20px;">
+	<ui:include src="navbar.xhtml" /> 
 	<b:jumbotron>
-		<b:container>
-			<h1>images</h1>
+		<b:container class="imgtitle">
+			<h1>Images of the day</h1>
 		</b:container>
 	</b:jumbotron>
 	<ul id="rig">
     <li>
-        <a class="rig-cell" href="#">
+        <a class="rig-cell" href="res/example.jpg">
             <img class="rig-img" src="res/example.jpg" />
             <span class="rig-overlay"></span>
             <span class="rig-text">Skyrim at dawn</span>
         </a>
     </li>
     <li>
-        <a class="rig-cell" href="#">
+        <a class="rig-cell" href="res/example2.jpg">
             <img class="rig-img" src="res/example2.jpg" />
             <span class="rig-overlay"></span>
             <span class="rig-text">Riverwood</span>
         </a>
     </li>
     <li>
-        <a class="rig-cell" href="#">
+        <a class="rig-cell" href="res/example3.jpg">
             <img class="rig-img" src="res/example3.jpg" />
             <span class="rig-overlay"></span>
             <span class="rig-text">The stars</span>
         </a>
     </li>
     <li>
-        <a class="rig-cell" href="#">
+        <a class="rig-cell" href="res/example4.jpg">
             <img class="rig-img" src="res/example4.jpg" />
             <span class="rig-overlay"></span>
             <span class="rig-text">Daedric warrior</span>
         </a>
     </li>
     <li>
-        <a class="rig-cell" href="#">
+        <a class="rig-cell" href="res/example5.jpg">
             <img class="rig-img" src="res/example5.jpg" />
             <span class="rig-overlay"></span>
             <span class="rig-text">Woodchopping</span>
         </a>
     </li>
     <li>
-        <a class="rig-cell" href="#">
+        <a class="rig-cell" href="res/example6.jpg">
             <img class="rig-img" src="res/example6.jpg" />
             <span class="rig-overlay"></span>
             <span class="rig-text">Trees</span>
         </a>
     </li>
+    <li>
+        <a class="rig-cell" href="res/example8.jpg">
+            <img class="rig-img" src="res/example8.jpg" />
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Sunset</span>
+        </a>
+    </li>
+    <li>
+        <a class="rig-cell" href="res/example9.jpg">
+            <img class="rig-img" src="res/example9.jpg" />
+            <span class="rig-overlay"></span>
+            <span class="rig-text">Tundra</span>
+        </a>
+    </li>
 </ul>
-	<!--
-<b:row class="imageholder">
-		<b:column col-sm="6" col-md="5">
-			<b:thumbnail>
-				<img src="res/example.jpg"
-					alt="Generic placeholder thumbnail" />
-				<f:facet name="caption">
-					<h3>Skyrim at night</h3>
-					<p>With various graphic mods.</p>
-					<p>
-						<b:button look="primary" value="Button" />
-						<b:button value="Button" />
-					</p>
-				</f:facet>
-			</b:thumbnail>
-		</b:column>
-</b:row>  
--->
 
 	<ui:include src="footer.xhtml" />
 </h:body>
