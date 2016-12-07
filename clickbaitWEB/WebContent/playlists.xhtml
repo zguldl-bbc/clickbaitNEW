@@ -1,29 +1,69 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html class="darkbody" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
+<link rel="stylesheet" href="css/style.css" />
 <h:head>
 	<title>clickbait</title>
 	<meta name="author" content="Raphael Stauffacher"></meta>
 </h:head>
 <!-- Add 50px padding top to the body for the navbar -->
-<h:body style="padding-top: 50px; padding-bottom: 20px;">
+<h:body class="darkbody" style="padding-top: 50px; padding-bottom: 20px;">
 	<ui:include src="navbar.xhtml" />
 	<b:jumbotron>
-		<b:container>
-			<h1>profile</h1>
+		<b:container class="sitetitle">
+			<h1>Playlists</h1>
 		</b:container>
 	</b:jumbotron>
 
-	<b:container rendered="#{registerController.loggedIn}">
-		<p>you are logged in</p>
+	<b:container rendered="#{userController.loggedIn}">
+
+		<b:modal id="playlistCreateModal" title="Create new Playlist"
+			styleClass="modalPseudoClass">
+			<h:form>
+				<div class="form-group">
+					<b:inputText placeholder="Name" fieldSize="sm" id="name"
+						type="text" value="#{playlistController.playlist.playlistName}"
+						required="true" />
+				</div>
+
+				<div class="form-group">
+					<p>set Playlist public</p>
+					<b:selectBooleanCheckbox title="hoi" fieldSize="sm"
+						id="booleanPublic" type="checkbox"
+						value="#{playlistController.playlist.booleanPublic}" />
+				</div> 
+			
+                #{' '}
+                <b:commandButton value="Create" look="success"
+					icon="chevron-right" iconAlign="right"
+					action="#{playlistController.createNewPlaylist()}" />
+			</h:form>
+		</b:modal>
+
+		<a id="atrigger" href="#playlistCreateModal" data-toggle="modal">create
+			new playlist</a>
+			
+		<ui:repeat value="#{playlistController.allPlaylists}" var="item">
+			<div id="playlist">
+				<h:form>
+					<h:commandButton value="#{item.playlistName}" class="playlistShow" action="#{playlistController.showPlaylist(item.playlistID)}"/>
+				</h:form>
+				<h:form>
+					<b:commandButton size="xs" look="primary"
+					icon="trash" action="#{playlistController.deletePlaylistWithID(item.playlistID)}" />
+				</h:form>
+			</div>
+		</ui:repeat>
+
 	</b:container>
 
-	<b:container rendered="#{not registerController.loggedIn}">
-		<p>fucking pleb go log yourself in</p>
+	<b:container rendered="#{not userController.loggedIn}">
+		<ui:include src="sessionInvalid.xhtml" />
 	</b:container>
+
 	<ui:include src="footer.xhtml" />
 </h:body>
 </html>

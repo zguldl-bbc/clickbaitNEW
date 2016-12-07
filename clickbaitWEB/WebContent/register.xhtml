@@ -8,46 +8,48 @@
 	<link rel="stylesheet" href="css/style.css" />
 <h:head>
 	<title>clickbait</title>
-	<meta name="author" content="Raphael Stauffacher / Guldimann Lionardo"></meta>
+	<meta name="author" content="Raphael Stauffacher"></meta>
 </h:head>
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
+
 <div id="registerForm">
-	<h:form>
+
+	<h:form rendered="#{not userController.loggedIn}">
 		<h:outputLabel for="userName" value="Username: " />
 		<b:inputText id="userName" type="text"
-			value="#{registerController.user.userName}" required="true"
+			value="#{userController.user.userName}" required="true"
 			requiredMessage="Bitte UserName eingeben">
 		</b:inputText>
 
 
 		<h:outputLabel for="email" value="E-mail: " />
 		<b:inputText id="email" type="email"
-			value="#{registerController.user.userEmail}" required="true"
+			value="#{userController.user.userEmail}" required="true"
 			requiredMessage="Bitte E-Mail eingeben">
 		</b:inputText>
 
 		<h:outputLabel for="password" value="Passwort: " />
 		<b:inputSecret id="password" type="password"
-			value="#{registerController.user.userPassword}" required="true"
+			value="#{userController.user.userPassword}" required="true"
 			requiredMessage="Bitte Passwort eingeben">
 		</b:inputSecret>
 
 		<h:outputLabel for="birthDate" value="Birthdate: " />
-		<b:inputText id="birthDate" type="date"
-			value="#{registerController.user.birthDate}" required="true"
+		<b:datepicker id="birthDate" showWeek="true" firstDay="1"
+			value="#{userController.user.birthDate}" required="true"
 			requiredMessage="Bitte Geburtsdatum eingeben">
-		</b:inputText>
+		</b:datepicker>
 
 		<h:outputLabel for="infos" value="Infos: " />
 		<b:inputText id="infos" type="text"
-			value="#{registerController.user.infos}" required="false"
+			value="#{userController.user.infos}" required="false"
 			requiredMessage="Bitte Infos eingeben:">
 		</b:inputText>
 
 		<h:message for="password" style="color: red;" />
 		<b:commandButton value="Sign Up" look="primary"
 				 icon="chevron-right" iconAlign="right"
-				action="#{registerController.save()}" />
+				action="#{userController.save()}" />
 	</h:form>
 </div>
 </h:body>

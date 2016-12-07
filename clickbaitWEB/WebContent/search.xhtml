@@ -1,6 +1,6 @@
 <?xml-stylesheet href="style.css" type="text/css"?>
 <!DOCTYPE html>
-<html  class="darkbody" xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:b="http://bootsfaces.net/ui"
@@ -10,12 +10,11 @@
 	<title>clickbait</title>
 	<meta name="author" content="Raphael Stauffacher"></meta>
 </h:head>
-<h:body class="darkbody" style="padding-top: 50px; padding-bottom: 20px;">
-	<h:form rendered="#{userController.loggedIn}" styleClass="navbar-form navbar-right">		
-				#{' '}
-                <b:commandButton value="Logout" look="success"
-			icon="chevron-right" iconAlign="right"
-			action="#{userController.logout}" />
-		</h:form>
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+	<h:form action="#{userController.hello()}" styleClass="navbar-form navbar-left">
+		<div class="form-group">
+			<b:inputText placeholder="Search..." fieldSize="sm" />
+		</div>
+	</h:form>
 </h:body>
 </html>

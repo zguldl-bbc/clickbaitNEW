@@ -24,15 +24,10 @@
 .vidtitle{
 	color: #ffffff;
 }
-.imagebody{
-	background: #5b5b5b;
+.darkbody{
+	background-color: #5b5b5b;
 }
-.vidbody{
-	background: #5b5b5b;
-}
-.indexbody{
-	background: #5b5b5b;
-}
+
 .textcontainer{
 	color: #ffffff;
 }
@@ -43,6 +38,15 @@
 	display: inline-block;
 	margin-left: auto;
 	margin-right: auto;
+}
+.sitetitle{
+	color: #ffffff;
+}
+p {
+	color: #ffffff;
+}
+h2 {
+	color: #ffffff;
 }
 #rig {
     /*max-width:1800px;*/
