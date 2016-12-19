@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+	<title>clickbait</title>
+		<meta name="author" content="Raphael Stauffacher"></meta>
+		<link style="width:100px; height:100px;" rel="shortcut icon" type="image/png" href="#{request.contextPath}/res/clickbait_favicon.png" />
+	</h:head>
+	<b:navBar brand="clickbait" brand-img-style="margin:10; width:30px; height:30px;" brand-img="res\clickbait_icon.png"
+		brandHref="https://en.wikipedia.org/wiki/Clickbait" inverse="true"
+		fixed="top">
+		<b:navbarLinks>
+			<b:navLink value="Home" href="index.jsf"></b:navLink>
+			<b:navLink value="Videos" href="video.jsf"></b:navLink>
+			<b:navLink value="Images" href="image.jsf"></b:navLink>
+			<b:dropMenu value="Profile">
+				<b:navLink value="Profile" href="profile.jsf"></b:navLink>
+				<b:navLink value="Playlists" href="playlistOwner.jsf"></b:navLink>
+			</b:dropMenu>
+		</b:navbarLinks>
+		<ui:include  src="login.xhtml" />
+		<ui:include  src="logout.xhtml" />
+		<ui:include  src="search.xhtml" />
+	</b:navBar>
+</ui:composition>

@@ -1,0 +1,44 @@
+<?xml-stylesheet href="style.css" type="text/css"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>clickbait</title>
+	<meta name="author" content="Raphael Stauffacher"></meta>
+</h:head>
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+	
+	<b:modal id="playlistCreateModal" title="Upload new File"
+		styleClass="modalPseudoClass">
+		<h:form class="login-form">
+			<p:fileUpload
+				fileUploadListener="#{uploadController.uploadBuffer}"
+				mode="advanced" dragDropSupport="true" sizeLimit="10000000000000"
+				allowTypes="/(\.|\/)(jpe?g|png|mp4|gif|webm|mov)$/" />
+		</h:form>
+		
+		<h:form>
+			<div class="form-group">
+				<b:inputText placeholder="Title" fieldSize="sm" id="mediaTitle" type="text"
+					value="#{mediaController.media.mediaTitle}" required="true" />
+			</div>
+			
+			<div class="form-group">
+				<b:inputText placeholder="Description" fieldSize="sm" id="mediaDescription" type="text"
+					value="#{mediaController.media.mediaDescription}" required="true" />
+			</div>
+			
+                #{' '}
+                <b:commandButton value="Upload" look="success"
+				icon="chevron-right" iconAlign="right"
+				action="#{mediaController.createNewMedia()}" />
+		</h:form>
+	</b:modal>
+	
+	<a id="atrigger" href="#playlistCreateModal" data-toggle="modal">Upload</a>
+</h:body>
+</html>

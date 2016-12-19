@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html class="darkbody" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>clickbait</title>
+	<meta name="author" content="Raphael Stauffacher"></meta>
+</h:head>
+<!-- Add 50px padding top to the body for the navbar -->
+<h:body class="darkbody"
+	style="padding-top: 50px; padding-bottom: 20px;">
+	<ui:include src="navbar.xhtml" />
+	<b:jumbotron>
+		<b:container class="sitetitle">
+			<h1>Search</h1>
+		</b:container>
+	</b:jumbotron>
+	<b:container>
+		<h2>Results for ' #{searchController.searchTerm} '</h2>
+
+		<ui:repeat value="#{searchController.users}" var="users">
+			<b:icon icon="user" name="user" />
+			<h:outputText value=" #{users.userName}" />
+			<h:form>
+				<b:commandButton size="xs" look="primary" icon="share-alt"
+					action="#{playlistController.showPlaylistFromUser(users.userEmail)}" />
+			</h:form>
+			<br />
+		</ui:repeat>
+
+		<ui:repeat value="#{searchController.playlists}" var="playlists">
+			<b:icon icon="folder-open" name="folder-open" />
+			<h:outputText value=" #{playlists.playlistName}" />
+			<h:form>
+				<b:commandButton size="xs" look="primary" icon="share-alt"
+					action="#{playlistController.showPlaylistContentFrom(playlists.playlistID, false)}" />
+			</h:form>
+			<br />
+		</ui:repeat>
+
+		<ui:repeat value="#{searchController.media}" var="med">
+			<b:icon icon="film" name="film" />
+			<h:outputText value=" #{med.mediaTitle}" />
+			<b:container rendered="#{med.booleanVideo == 1}">
+				<video style="width: 200px; height: 200px;" controls="controls">
+					<source src="#{med.mediaSrc}" type="video/mp4" />
+				</video>
+			</b:container>
+			<b:container rendered="#{med.booleanVideo == 0}">
+				<img style="width: 200px; height: 200px;" src="#{med.mediaSrc}" />
+			</b:container>
+		</ui:repeat>
+	</b:container>
+	<ui:include src="footer.xhtml" />
+</h:body>
+</html>

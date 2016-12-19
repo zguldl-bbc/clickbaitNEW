@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html class="darkbody" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>clickbait</title>
+	<meta name="author" content="Raphael Stauffacher"></meta>
+</h:head>
+<!-- Add 50px padding top to the body for the navbar -->
+<h:body class="darkbody"
+	style="padding-top: 50px; padding-bottom: 20px;">
+	<ui:include src="navbar.xhtml" />
+	<b:jumbotron>
+		<b:container class="sitetitle">
+			<h1>Profile</h1>
+		</b:container>
+	</b:jumbotron>
+
+	<b:container rendered="#{userController.loggedIn}">
+
+		<b:modal id="editUser" title="Edit your Account"
+			styleClass="modalPseudoClass">
+
+			<h:form>
+				<div class="form-group">
+					<b:inputText placeholder="UserName" fieldSize="sm" id="userName"
+						type="text" value="#{userController.userEdit.userName}"/>
+				</div>
+
+				<div class="form-group">
+					<b:inputSecret placeholder="userPassword" fieldSize="sm"
+						id="userPassword" type="text"
+						value="#{userController.userEdit.userPassword}"/>
+				</div>
+
+				<div class="form-group">
+					<b:inputText placeholder="infos" fieldSize="sm"
+						id="infos" type="text"
+						value="#{userController.userEdit.infos}"/>
+				</div>
+			
+                #{' '}
+                <b:commandButton value="edit" look="success"
+					icon="chevron-right" iconAlign="right"
+					action="#{userController.editUser}" />
+			</h:form>
+		</b:modal>
+
+		<a id="atrigger" href="#editUser" data-toggle="modal">edit</a>
+
+		<ui:repeat value="#{userController.getAllUserInfos()}" />
+
+		<p>Username: #{userController.userProfile.userName}</p>
+		<p>UserEmail: #{userController.userProfile.userEmail}</p>
+		<p>UserPassword: #{userController.userProfile.userPassword}</p>
+		<p>BirthDate: #{userController.userProfile.birthDate}</p>
+		<p>Infos: #{userController.userProfile.infos}</p>
+
+		<h:form>
+			<b:commandButton value="delete account" size="xs"
+				look="primary" icon="trash" action="#{userController.deleteAccount}" />
+		</h:form>
+
+	</b:container>
+
+	<b:container rendered="#{not userController.loggedIn}">
+		<ui:include src="sessionInvalid.xhtml" />
+	</b:container>
+
+	<ui:include src="footer.xhtml" />
+</h:body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html class="darkbody" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>clickbait</title>
+	<meta name="author" content="Raphael Stauffacher"></meta>
+</h:head>
+<!-- Add 50px padding top to the body for the navbar -->
+<h:body class="darkbody"
+	style="padding-top: 50px; padding-bottom: 20px;">
+	<ui:include src="navbar.xhtml" />
+	<b:jumbotron>
+		<b:container class="sitetitle">
+			<h1>Video</h1>
+		</b:container>
+	</b:jumbotron>
+	<b:container>
+
+		<ui:repeat value="#{mediaController.getSixRandomVideos()}" var="item">
+			<video title="#{item.mediaTitle} -> #{item.mediaDescription} | posted at #{mediaController.parseTime(item.mediaSrc)}" style="width: 200px; height: 200px;" controls="controls">
+				<source src="#{item.mediaSrc}" type="video/mp4" />
+			</video>
+		</ui:repeat>
+		
+	</b:container>
+
+	<ui:include src="footer.xhtml" />
+</h:body>
+</html>
